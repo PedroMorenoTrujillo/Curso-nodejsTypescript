@@ -1,11 +1,11 @@
 // Importamos express
-const express = require('express');
+import express from 'express';
 
 // Importamos controller
-const usersController = require('../../controllers/v1/usersController');
+import usersController from '../../controllers/v1/usersController';
 
 // Importar el middleware
-const { isValidHostname, isAuth, isAdmin } = require('../../middlewares/auth');
+import { isValidHostname, isAuth, isAdmin } from '../../middlewares/auth';
 
 // Iniciar el router
 const router = express.Router();
@@ -19,4 +19,4 @@ router.post('/delete', isAuth, isAdmin, usersController.deleteUser);
 router.get('/get-all', isAuth, isAdmin, usersController.getUsers);
 
 // Exportar routes
-module.exports = router;
+export default router;
